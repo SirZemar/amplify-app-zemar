@@ -10,6 +10,11 @@
       "StackName": "amplify-amplifyappzemar-dev-202154",
       "StackId": "arn:aws:cloudformation:eu-west-1:004869433235:stack/amplify-amplifyappzemar-dev-202154/a2e087d0-70ec-11ed-aa28-06c18c55619d",
       "AmplifyAppId": "d6mh781aew6yc"
+    },
+    "categories": {
+      "api": {
+        "amplifyappzemar": {}
+      }
     }
   }
 }
