@@ -23,6 +23,15 @@
       },
       "auth": {
         "amplifyappzemar0cb0fd1a": {}
+      },
+      "function": {
+        "S3Trigger080e76d9": {
+          "deploymentBucketName": "amplify-amplifyappzemar-dev-202154-deployment",
+          "s3Key": "amplify-builds/S3Trigger080e76d9-65677a516c76326a4c69-build.zip"
+        }
+      },
+      "storage": {
+        "amplifystorage": {}
       }
     }
   }
