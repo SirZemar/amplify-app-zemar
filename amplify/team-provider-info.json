@@ -14,6 +14,12 @@
     "categories": {
       "api": {
         "amplifyappzemar": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d6mh781aew6yc",
+          "type": "manual"
+        }
       }
     }
   }
