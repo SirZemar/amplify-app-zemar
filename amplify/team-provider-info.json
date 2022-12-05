@@ -20,6 +20,9 @@
           "appId": "d6mh781aew6yc",
           "type": "manual"
         }
+      },
+      "auth": {
+        "amplifyappzemar0cb0fd1a": {}
       }
     }
   }
