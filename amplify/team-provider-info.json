@@ -28,6 +28,10 @@
         "S3Trigger080e76d9": {
           "deploymentBucketName": "amplify-amplifyappzemar-dev-202154-deployment",
           "s3Key": "amplify-builds/S3Trigger080e76d9-65677a516c76326a4c69-build.zip"
+        },
+        "helloWorld": {
+          "deploymentBucketName": "amplify-amplifyappzemar-dev-202154-deployment",
+          "s3Key": "amplify-builds/helloWorld-3164333637304c376e59-build.zip"
         }
       },
       "storage": {
