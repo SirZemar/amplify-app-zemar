@@ -4,8 +4,8 @@
       let-user="user"
       let-signOut="signOut"
     >
-    <h1>Welcome {{ user.username }}!</h1>
+    <h1 style="display: inline; padding-right: 20px;">Welcome {{ user.username }}!</h1> 
+    <button (click)="signOut()">Sign Out</button>
       <app-restaurants></app-restaurants>
-      <button (click)="signOut()">Sign Out</button>
     </ng-template>
   </amplify-authenticator>

@@ -12,18 +12,18 @@
       [formGroup]="createForm"
       (ngSubmit)="onCreate(createForm.value)"
     >
-      <div>
+      <div style="margin: 5px 0;">
         <label>Name: </label>
         <input type="text" formControlName="name" autocomplete="off" />
       </div>
-      <div>
+      <div style="margin: 5px 0;">
         <label>Description: </label>
         <input type="text" formControlName="description" autocomplete="off" />
       </div>
-      <div>
+      <div style="margin: 5px 0;">
         <label>City: </label>
         <input type="text" formControlName="city" autocomplete="off" />
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" style="margin: 20px 0;">Submit</button>
     </form>
 </div>
