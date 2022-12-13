@@ -83,5 +83,11 @@
         }
       ]
     }
+  },
+  "analytics": {
+    "amplifyappzemar": {
+      "service": "Pinpoint",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }
