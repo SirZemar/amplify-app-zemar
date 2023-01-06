@@ -1,8 +1,9 @@
+<h1 class="title">List of Restaurants</h1>
 <hr />
 <div *ngFor="let restaurant of restaurants">
-    <div>{{ restaurant?.city }}</div>
-    <div>{{ restaurant?.name }}</div>
-    <div>{{ restaurant?.description }}</div>
+  <div class="restaurant-item">Name: {{ restaurant?.name }}</div>
+  <div class="restaurant-item">City: {{ restaurant?.city }}</div>
+  <div class="restaurant-item">Description: {{ restaurant?.description }}</div>
     <hr />
 </div>
 <hr />
@@ -17,12 +18,13 @@
         <input type="text" formControlName="name" autocomplete="off" />
       </div>
       <div style="margin: 5px 0;">
-        <label>Description: </label>
-        <input type="text" formControlName="description" autocomplete="off" />
-      </div>
-      <div style="margin: 5px 0;">
         <label>City: </label>
         <input type="text" formControlName="city" autocomplete="off" />
+      </div>
+      <div style="margin: 5px 0;">
+        <label>Description: </label>
+        <textarea type="text" formControlName="description" style="width: 100%; height:100px; resize: none;"
+          autocomplete="off"></textarea>
       </div>
       <button type="submit" style="margin: 20px 0;">Submit</button>
     </form>

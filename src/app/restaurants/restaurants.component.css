@@ -1,0 +1,94 @@
+/* Styles done by ChatGPT */
+.title {
+    text-align: center;
+    font-size: 36px;
+    color: #333333;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 20px 0;
+    letter-spacing: 2px;
+}
+
+
+
+.form-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid gray;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+form>div {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+form>div>label {
+    width: 30%;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 10px;
+}
+
+form>div>input {
+    width: 70%;
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+button[type="submit"] {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: darkblue;
+}
+
+button[type="submit"]:active {
+    transform: translateY(2px);
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: gray;
+    margin: 20px 0;
+}
+
+.restaurant-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.restaurant-item:nth-child(1) {
+    width: 30%;
+    font-weight: bold;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.restaurant-item:nth-child(2) {
+    width: 40%;
+    font-weight: bold;
+    text-align: left;
+}
+
+.restaurant-item:nth-child(3) {
+    width: 30%;
+    text-align: left;
+}

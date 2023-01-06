@@ -29,12 +29,25 @@ export type AmplifyDependentResourcesAttributes = {
             "Arn": "string",
             "Region": "string",
             "LambdaExecutionRole": "string"
+        },
+        "helloEmail": {
+            "Name": "string",
+            "Arn": "string",
+            "Region": "string",
+            "LambdaExecutionRole": "string"
         }
     },
     "storage": {
         "amplifystorage": {
             "BucketName": "string",
             "Region": "string"
+        }
+    },
+    "analytics": {
+        "amplifyappzemar": {
+            "Region": "string",
+            "Id": "string",
+            "appName": "string"
         }
     }
 }

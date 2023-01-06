@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APIService, Restaurant } from '../API.service';
 import { Subscription } from 'rxjs';
+import { Analytics, Auth } from 'aws-amplify';
+
 
 @Component({
   selector: 'app-restaurants',
@@ -12,9 +14,11 @@ export class RestaurantsComponent implements OnInit, OnDestroy{
     public createForm: FormGroup;
     public restaurants: Array<Restaurant> = [];
     private subscription: Subscription | null  = null;
+  private user: any
+
     constructor (
       private api: APIService,
-      private fb: FormBuilder
+      private fb: FormBuilder,
     ) {
       this.createForm = this.fb.group({
         name: ['', Validators.required],
@@ -33,6 +37,8 @@ export class RestaurantsComponent implements OnInit, OnDestroy{
           this.restaurants = [newRestaurant, ...this.restaurants];
         }
       );
+      this.user = await Auth.currentAuthenticatedUser({ bypassCache: false })
+      console.log('User: ', this.user)
     }
 
     ngOnDestroy() {
@@ -41,7 +47,8 @@ export class RestaurantsComponent implements OnInit, OnDestroy{
         }
         this.subscription = null;
     }
-    public onCreate(restaurant: Restaurant) {
+
+  public async onCreate(restaurant: Restaurant) {
       this.api
       .CreateRestaurant(restaurant)
       .then(() => {
@@ -51,5 +58,25 @@ export class RestaurantsComponent implements OnInit, OnDestroy{
       .catch((e) => {
         console.log('error creating restaurant', e)
       });
+
+    console.log(restaurant)
+
+    /*  await Analytics.updateEndpoint({
+       address: this.user.attributes.email,
+       channelType: 'EMAIL',
+       optOut: 'NONE',
+       attributes: {
+         restaurantName: [restaurant.name],
+         restaurantCity: [restaurant.city],
+         restaurantDescription: [restaurant.description]
+       },
+       userAttributes: {
+         username: [this.user.username]
+       }
+     });
+     await Analytics.record({ name: 'RestaurantCreated' }); */
+
+    //Create a new Pinpoint object.
     }
+
 }

@@ -32,10 +32,17 @@
         "helloWorld": {
           "deploymentBucketName": "amplify-amplifyappzemar-dev-202154-deployment",
           "s3Key": "amplify-builds/helloWorld-3164333637304c376e59-build.zip"
+        },
+        "helloEmail": {
+          "deploymentBucketName": "amplify-amplifyappzemar-dev-202154-deployment",
+          "s3Key": "amplify-builds/helloEmail-646d4b7666516e4c4342-build.zip"
         }
       },
       "storage": {
         "amplifystorage": {}
+      },
+      "analytics": {
+        "amplifyappzemar": {}
       }
     }
   }
