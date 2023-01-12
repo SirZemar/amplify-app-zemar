@@ -35,7 +35,11 @@
         },
         "helloEmail": {
           "deploymentBucketName": "amplify-amplifyappzemar-dev-202154-deployment",
-          "s3Key": "amplify-builds/helloEmail-646d4b7666516e4c4342-build.zip"
+          "s3Key": "amplify-builds/helloEmail-756f424537733338624a-build.zip"
+        },
+        "userStatusEmail": {
+          "deploymentBucketName": "amplify-amplifyappzemar-dev-202154-deployment",
+          "s3Key": "amplify-builds/userStatusEmail-66765264633946535263-build.zip"
         }
       },
       "storage": {
