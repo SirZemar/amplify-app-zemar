@@ -11,55 +11,38 @@ exports.handler = async (event) => {
     const aws_region = "eu-west-1"
     const pinpointProjectId = 'f1b59fc1249142e8a65da6496e103dc1';
 
-    let returnMessage = 'Email was sent';
+    AWS.config.update({ region: aws_region });
 
-    try {
-        AWS.config.update({ region: aws_region });
+    const pinpoint = new AWS.Pinpoint();
 
-        const pinpoint = new AWS.Pinpoint();
-
-        // Specify the parameters to pass to the API.
-        var params = {
-            ApplicationId: pinpointProjectId,
-            MessageRequest: {
-                Addresses: {
-                    [toAddress]: {
-                        ChannelType: 'EMAIL'
-                    }
-                },
-                'MessageConfiguration': {
-                    'EmailMessage': { 'FromAddress': sender }
-                },
-                'TemplateConfiguration': {
-                    'EmailTemplate': {
-                        'Name': template_name,
-                        // 'Version': 'version-1'
-                    }
+    // Specify the parameters to pass to the API.
+    var params = {
+        ApplicationId: pinpointProjectId,
+        MessageRequest: {
+            Addresses: {
+                [toAddress]: {
+                    ChannelType: 'EMAIL'
+                }
+            },
+            'MessageConfiguration': {
+                'EmailMessage': { 'FromAddress': sender }
+            },
+            'TemplateConfiguration': {
+                'EmailTemplate': {
+                    'Name': template_name,
+                    // 'Version': 'version-1'
                 }
             }
-        };
-        //Try to send the email.
-        pinpoint.sendMessages(params, function (err, data) {
-            // If something goes wrong, print an error message.
-            if (err) {
-                console.log('Email wasn\'t sent', err.message);
-            } else {
-                console.log("Email sent! Message ID: ", data['MessageResponse']['Result'][toAddress]['MessageId']);
-            }
-        })
-
-    } catch (error) {
-        returnMessage = `Email wasn't sent: ${error}`
-    }
-
-    return {
-        statusCode: 200,
-        //  Uncomment below to enable CORS requests
-        //  headers: {
-        //      "Access-Control-Allow-Origin": "*",
-        //      "Access-Control-Allow-Headers": "*"
-        //  }, 
-        body: JSON.stringify(returnMessage),
-
+        }
     };
+    //Try to send the email.
+    await pinpoint.sendMessages(params, (err, data) => {
+        // If something goes wrong, print an error message.
+        console.log('DATA', data);
+        if (err) {
+            console.log('Email wasn\'t sent', err.message);
+        } else {
+            console.log("Email sent! Message ID: ", data['MessageResponse']['Result'][toAddress]['MessageId']);
+        }
+    }).promise();
 };
