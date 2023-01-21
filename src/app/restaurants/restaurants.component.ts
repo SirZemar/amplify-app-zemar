@@ -1,10 +1,4 @@
-import {
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  ViewChildren,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APIService, Restaurant } from '../API.service';
 import { Subscription } from 'rxjs';
@@ -21,8 +15,6 @@ export class RestaurantsComponent implements OnInit, OnDestroy {
   public restaurants: Array<Restaurant> = [];
   private subscription: Subscription | null = null;
   private user: any;
-
-  @ViewChildren('myInput') newCityName!: ElementRef;
 
   constructor(private api: APIService, private fb: FormBuilder) {
     this.createForm = this.fb.group({
@@ -95,6 +87,21 @@ export class RestaurantsComponent implements OnInit, OnDestroy {
     this.restaurants.forEach((restaurant) => {
       if (restaurant.id === id) {
         restaurant.city = cityName;
+      }
+    });
+
+    event.target.value = '';
+  }
+
+  async editName(name: string, id: string, event: any) {
+    this.api.UpdateRestaurant({
+      id: id,
+      name: name,
+    });
+
+    this.restaurants.forEach((restaurant) => {
+      if (restaurant.id === id) {
+        restaurant.name = name;
       }
     });
 

@@ -1,11 +1,22 @@
 <h1 class="title">List of Restaurants</h1>
 <hr />
 <div *ngFor="let restaurant of restaurants">
-  <div class="restaurant-item">Name: {{ restaurant?.name }}</div>
+  <div class="restaurant-item">
+    Name: {{ restaurant?.name
+    }}<span
+      ><input
+        type="text"
+        #newName
+        (keyup.enter)="editName(newName.value, restaurant.id, $event)"
+    /></span>
+  </div>
   <div class="restaurant-item">
     City: {{ restaurant?.city
     }}<span
-      ><input type="text"  #myInput (keyup.enter)="editCity(myInput.value, restaurant.id, $event)"
+      ><input
+        type="text"
+        #newCityName
+        (keyup.enter)="editCity(newCityName.value, restaurant.id, $event)"
     /></span>
   </div>
   <div class="restaurant-item">Description: {{ restaurant?.description }}</div>
