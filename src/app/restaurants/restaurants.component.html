@@ -2,30 +2,49 @@
 <hr />
 <div *ngFor="let restaurant of restaurants">
   <div class="restaurant-item">Name: {{ restaurant?.name }}</div>
-  <div class="restaurant-item">City: {{ restaurant?.city }}</div>
+  <div class="restaurant-item">
+    City: {{ restaurant?.city
+    }}<span
+      ><input type="text"  #myInput (keyup.enter)="editCity(myInput.value, restaurant.id, $event)"
+    /></span>
+  </div>
   <div class="restaurant-item">Description: {{ restaurant?.description }}</div>
-    <hr />
+  <hr />
 </div>
 <hr />
 <div class="form-body">
-    <form
-      autocomplete="off"
-      [formGroup]="createForm"
-      (ngSubmit)="onCreate(createForm.value)"
-    >
-      <div style="margin: 5px 0;">
-        <label>Name: </label>
-        <input type="text" style="max-width: 400px;" formControlName="name" autocomplete="off" />
-      </div>
-      <div style="margin: 5px 0;">
-        <label>City: </label>
-        <input type="text" style="max-width: 400px;" formControlName="city" autocomplete="off" />
-      </div>
-      <div style="margin: 5px 0;">
-        <label>Description: </label>
-        <textarea type="text" formControlName="description" style="width: 100%; height:100px; max-width: 400px; resize: none;"
-          autocomplete="off"></textarea>
-      </div>
-      <button type="submit" style="margin: 20px 0;">Submit</button>
-    </form>
+  <form
+    autocomplete="off"
+    [formGroup]="createForm"
+    (ngSubmit)="onCreate(createForm.value)"
+  >
+    <div style="margin: 5px 0">
+      <label>Name: </label>
+      <input
+        type="text"
+        style="max-width: 400px"
+        formControlName="name"
+        autocomplete="off"
+      />
+    </div>
+    <div style="margin: 5px 0">
+      <label>City: </label>
+      <input
+        type="text"
+        style="max-width: 400px"
+        formControlName="city"
+        autocomplete="off"
+      />
+    </div>
+    <div style="margin: 5px 0">
+      <label>Description: </label>
+      <textarea
+        type="text"
+        formControlName="description"
+        style="width: 100%; height: 100px; max-width: 400px; resize: none"
+        autocomplete="off"
+      ></textarea>
+    </div>
+    <button type="submit" style="margin: 20px 0">Submit</button>
+  </form>
 </div>
